@@ -1,0 +1,27 @@
+.searchClients {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.searchClientsInput {
+    width: 298px;
+    height: 40px;
+    border-radius: 30px;
+    padding-left: 35px;
+    margin-right: 14px;
+    border-color: #cdcdcd;
+    outline-color: #cdcdcd;
+}
+.closeSearchClients {
+    background-color: #f1f2f3;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}

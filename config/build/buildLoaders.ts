@@ -10,6 +10,28 @@ export function buildLoaders(options: BuildOptions): ModuleOptions["rules"] {
     type: "asset/resource",
   }
 
+   const svgrLoader = {
+        test: /\.svg$/i,
+        use: [
+            {
+                loader: '@svgr/webpack',
+                options: {
+                    icon: true,
+                    svgoConfig: {
+                        plugins: [
+                            {
+                                name: 'convertColors',
+                                params: {
+                                    currentColor: true,
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+    }
+
   const cssLoaderWithModules = {
     loader: "css-loader",
     options: {
@@ -36,5 +58,5 @@ export function buildLoaders(options: BuildOptions): ModuleOptions["rules"] {
     exclude: /node_modules/,
   }
 
-  return [assetLoader, scssLoader, tsLoader]
+  return [assetLoader, scssLoader, tsLoader, svgrLoader]
 }

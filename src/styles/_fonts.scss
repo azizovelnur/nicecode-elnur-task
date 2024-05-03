@@ -1,0 +1,9 @@
+@font-face {
+    font-family: "SF Pro Display";
+    src: url("../assets/fonts/SFPRODISPLAYREGULAR.OTF") format("opentype");
+    /* Additional font properties such as font-weight and font-style can be specified here */
+}
+
+body {
+    font-family: "SF Pro Display", sans-serif;
+}

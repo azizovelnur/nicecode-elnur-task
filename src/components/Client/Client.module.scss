@@ -1,0 +1,23 @@
+.client {
+  display: flex;
+  align-items: center;
+  width: 366px;
+  height: 60px;
+  background: #fff;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  padding-left: 10px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+
+.clientPicture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: gray;
+}
+
+.clientName {
+  margin-left: 12px;
+}

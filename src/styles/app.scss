@@ -1,0 +1,13 @@
+@import "reset";
+@import "fonts";
+body {
+    background-color: #f1f2f3;
+}
+
+::-webkit-scrollbar {
+    width: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(161, 193, 213);
+}
