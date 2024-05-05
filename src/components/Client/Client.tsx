@@ -2,6 +2,7 @@ import { FC } from 'react'
 import { IClientProps } from '../../types/types'
 
 import * as s from './Client.module.scss'
+import { Link } from 'react-router-dom'
 
 export const Client: FC<IClientProps> = ({
     client,
@@ -18,8 +19,11 @@ export const Client: FC<IClientProps> = ({
                     onChange={() => handleCheckboxChange(client)}
                 />
             )}
+
             <div className={s.clientPicture}></div>
-            <div className={s.clientName}>{client.name}</div>
+            <Link to={`/client/${client.id}`}>
+                <div className={s.clientName}>{client.name}</div>
+            </Link>
         </div>
     )
 }

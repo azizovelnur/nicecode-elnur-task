@@ -1,28 +1,35 @@
 import { FC } from 'react'
 import * as s from './ClientsManipulationControls.module.scss'
-import { IClient } from '../../types/types'
 import { EditDropDownClient } from '../EditDropDownClient/EditDropDownClient'
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks'
+import { RootState } from '../../store/store'
+import { selectModeR, selectedClientsR } from '../../store/slices/clientsSlice'
 
-interface ClientsManipulationControlsProps {
-    selectMode: boolean
-    selectedClients: IClient[]
-    clients: IClient[]
-    selectAllClients: () => void
-    toggleSelectMode: () => void
-}
+export const ClientsManipulationControls: FC = () => {
+    const dispatch = useAppDispatch()
+    const {
+        selectModeOfClientsSlice,
+        clientsDataOfClientsSlice,
+        selectedClientsOfClientsSlice,
+    } = useAppSelector((state: RootState) => state.clients)
 
-export const ClientsManipulationControls: FC<
-    ClientsManipulationControlsProps
-> = ({
-    selectMode,
-    selectedClients,
-    clients,
-    selectAllClients,
-    toggleSelectMode,
-}) => {
+    const toggleSelectMode = () => {
+        dispatch(selectModeR(!selectModeOfClientsSlice))
+    }
+
+    const selectAllClients = () => {
+        if (
+            selectedClientsOfClientsSlice.length ===
+            clientsDataOfClientsSlice.length
+        ) {
+            dispatch(selectedClientsR([]))
+        } else {
+            dispatch(selectedClientsR([...clientsDataOfClientsSlice]))
+        }
+    }
     return (
         <>
-            {selectMode ? (
+            {selectModeOfClientsSlice ? (
                 <div className={s.clientsManipulationControls}>
                     <div>
                         <label className={s.selectClientsActive}>
@@ -31,7 +38,8 @@ export const ClientsManipulationControls: FC<
                                 type="checkbox"
                                 readOnly
                                 checked={
-                                    selectedClients.length === clients.length
+                                    selectedClientsOfClientsSlice.length ===
+                                    clientsDataOfClientsSlice.length
                                 }
                             />
                             <div
@@ -41,7 +49,7 @@ export const ClientsManipulationControls: FC<
                                 Все
                             </div>
                             <div className={s.numberOfSelectedUsers}>
-                                {selectedClients.length}
+                                {selectedClientsOfClientsSlice.length}
                             </div>
                         </label>
                     </div>
@@ -58,7 +66,9 @@ export const ClientsManipulationControls: FC<
                 </div>
             ) : (
                 <div className={s.clientsManipulationControls}>
-                    <div className={s.numberOfUsers}>{clients.length}</div>
+                    <div className={s.numberOfUsers}>
+                        {clientsDataOfClientsSlice.length}
+                    </div>
                     <div className={s.selectBtn} onClick={toggleSelectMode}>
                         Выбрать
                     </div>

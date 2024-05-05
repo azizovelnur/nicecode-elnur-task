@@ -1,28 +1,24 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import { SearchClients } from '../SeachClient/SearchClient'
 import SearchIcon from '../../assets/images/SearchIcon.svg'
 import * as s from './SearchBar.module.scss'
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks'
+import { RootState } from '../../store/store'
+import { searchActiveR } from '../../store/slices/clientsSlice'
 
-interface SearchBarProps {
-    isSearchActive: boolean
-    setIsSearchActive: (value: boolean) => void
-    searchClient: string
-    setSearchClient: (value: string) => void
-}
+export const SearchBar: FC = () => {
+    const { searchActiveOfClientsSlice } = useAppSelector(
+        (state: RootState) => state.clients,
+    )
+    const dispatch = useAppDispatch()
 
-export const SearchBar: FC<SearchBarProps> = ({
-    isSearchActive,
-    setIsSearchActive,
-    searchClient,
-    setSearchClient,
-}) => {
     return (
         <div className={s.searchBar}>
-            {!isSearchActive && (
+            {!searchActiveOfClientsSlice ? (
                 <>
                     <div>
                         <button
-                            onClick={() => setIsSearchActive(true)}
+                            onClick={() => dispatch(searchActiveR(true))}
                             className={s.searchIconWrapper}
                         >
                             <SearchIcon />
@@ -34,14 +30,8 @@ export const SearchBar: FC<SearchBarProps> = ({
                         <button className={s.filterIconAddHandler}>+</button>
                     </div>
                 </>
-            )}
-
-            {isSearchActive && (
-                <SearchClients
-                    searchClient={searchClient}
-                    setSearchClient={setSearchClient}
-                    setIsSearchActive={setIsSearchActive}
-                />
+            ) : (
+                <SearchClients />
             )}
         </div>
     )

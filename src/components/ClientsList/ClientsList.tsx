@@ -1,43 +1,72 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import * as s from './ClientsList.module.scss'
 import { IClient } from '../../types/types'
 import { Client } from '../Client/Client'
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks'
+import { RootState } from '../../store/store'
+import { selectedClientsR } from '../../store/slices/clientsSlice'
 
-interface ClientsListProps {
-    selectMode: boolean
-    filteredClients: IClient[]
-    selectedClients: IClient[]
-    handleCheckboxChange: (client: IClient) => void
-}
+export const ClientsList: FC = () => {
+    const {
+        selectModeOfClientsSlice,
+        clientsDataOfClientsSlice,
+        searchValueOfClientOfClientsSlice,
+        selectedClientsOfClientsSlice,
+    } = useAppSelector((state: RootState) => state.clients)
 
-export const ClientsList: FC<ClientsListProps> = ({
-    selectMode,
-    filteredClients,
-    selectedClients,
-    handleCheckboxChange,
-}) => {
+    const dispatch = useAppDispatch()
+    const filteredClients = clientsDataOfClientsSlice.filter((client) =>
+        client.name
+            .toLowerCase()
+            .includes(searchValueOfClientOfClientsSlice.toLowerCase()),
+    )
+    const handleCheckboxChange = (client: IClient) => {
+        if (selectModeOfClientsSlice) {
+            if (selectedClientsOfClientsSlice.includes(client)) {
+                dispatch(
+                    selectedClientsR(
+                        selectedClientsOfClientsSlice.filter(
+                            (c) => c !== client,
+                        ),
+                    ),
+                )
+            } else {
+                dispatch(
+                    selectedClientsR([
+                        ...selectedClientsOfClientsSlice,
+                        client,
+                    ]),
+                )
+            }
+        }
+    }
+
     return (
         <div className={s.clientList}>
-            {selectMode &&
+            {selectModeOfClientsSlice &&
                 filteredClients.map((client, key) => (
                     <div key={key}>
                         <Client
                             key={key}
                             client={client}
                             handleCheckboxChange={handleCheckboxChange}
-                            selected={selectedClients.includes(client)}
-                            selectMode={selectMode}
+                            selected={selectedClientsOfClientsSlice.includes(
+                                client,
+                            )}
+                            selectMode={selectModeOfClientsSlice}
                         />
                     </div>
                 ))}
-            {!selectMode &&
+            {!selectModeOfClientsSlice &&
                 filteredClients.map((client, key) => (
                     <Client
                         key={key}
                         client={client}
                         handleCheckboxChange={handleCheckboxChange}
-                        selected={selectedClients.includes(client)}
-                        selectMode={selectMode}
+                        selected={selectedClientsOfClientsSlice.includes(
+                            client,
+                        )}
+                        selectMode={selectModeOfClientsSlice}
                     />
                 ))}
         </div>
