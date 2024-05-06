@@ -1,2 +1,27 @@
 .clientProfileNotes {
+    line-height: 24px;
+}
+
+.clientProfileNote {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.date {
+    color: #616f82;
+    margin-right: 10px;
+}
+
+.notePost {
+    width: 680px;
+}
+
+.notePostDetails {
+    cursor: pointer;
+}
+
+.mapIcon {
+    border: 6px solid #cdcdcd;
+    border-radius: 4px;
+    margin-top: 11px;
 }

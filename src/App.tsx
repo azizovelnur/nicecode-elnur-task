@@ -11,6 +11,7 @@ function App() {
         <Routes>
             <Route path={'/'} element={<Layout />}>
                 <Route path="/client/:id" element={<ClientProfileLayout />}>
+                    <Route index element={<ClientProfileNotes />} />
                     <Route path="notes" element={<ClientProfileNotes />} />
                     <Route
                         path="consultations"

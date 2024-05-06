@@ -1,0 +1,53 @@
+.videos {
+    border: 2px solid #cdcdcd;
+    width: 724px;
+    height: 66px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    position: relative;
+}
+.videosContent {
+    display: flex;
+    height: 44px;
+}
+.videosContentWrapper {
+    background-color: #4198c5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.videosContentImg {
+    width: 82px;
+    height: 46px;
+}
+
+.videosContentDate {
+    color: #ff0000;
+    position: absolute;
+    bottom: 7px;
+    right: 11px;
+}
+
+.videosContentTextWrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.videosContentText {
+    color: black;
+}
+
+.videosContentAuthor {
+    color: #616f82;
+}
+
+.videosContentDate {
+    color: #616f82;
+}

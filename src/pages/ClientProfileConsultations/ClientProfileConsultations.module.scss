@@ -1,0 +1,52 @@
+.consultation {
+    border: 2px solid #cdcdcd;
+    width: 724px;
+    height: 66px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    position: relative;
+}
+.consultationContent {
+    display: flex;
+
+    height: 44px;
+}
+.consultationContentIconActive,
+.consultationContentIcon {
+    width: 40px;
+    height: 40px;
+    background-color: #4198c5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.consultationContentIcon {
+    background-color: #f1f2f3;
+}
+
+.consultationNotConfirmedText {
+    color: #ff0000;
+    position: absolute;
+    bottom: 7px;
+    right: 11px;
+}
+
+.consultationContentTextWrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.consultationContentText {
+    color: black;
+}
+
+.consultationContentDate {
+    color: #616f82;
+}

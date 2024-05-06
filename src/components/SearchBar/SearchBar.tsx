@@ -5,6 +5,8 @@ import * as s from './SearchBar.module.scss'
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks'
 import { RootState } from '../../store/store'
 import { searchActiveR } from '../../store/slices/clientsSlice'
+import FilterIcon from '../../assets/images/Filter.svg'
+import AddIcon from '../../assets/images/addIcon.svg'
 
 export const SearchBar: FC = () => {
     const { searchActiveOfClientsSlice } = useAppSelector(
@@ -21,13 +23,21 @@ export const SearchBar: FC = () => {
                             onClick={() => dispatch(searchActiveR(true))}
                             className={s.searchIconWrapper}
                         >
-                            <SearchIcon />
+                            <SearchIcon
+                                width={'20'}
+                                height={'20'}
+                                color={'#616F82'}
+                            />
                         </button>
                     </div>
                     <div className={s.filterAndAdd}>
-                        <button className={s.filterIconWrapper}>+</button>
+                        <button className={s.filterIconWrapper}>
+                            <FilterIcon color={'#616F82'} />
+                        </button>
 
-                        <button className={s.filterIconAddHandler}>+</button>
+                        <button className={s.filterIconAddHandler}>
+                            <AddIcon color={'#616F82'} />
+                        </button>
                     </div>
                 </>
             ) : (

@@ -1,9 +1,11 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import * as s from './ClientProfile.module.scss'
 import { useParams } from 'react-router-dom'
 import { useAppSelector } from '../../hooks/hooks'
 import { RootState } from '../../store/store'
 import { ClientProfileSubpages } from '../../pages/ClientProfileSubpages/ClientProfileSubpages'
+import DetailsIcon from '../../assets/images/detailsIcon.svg'
+import { EditDropDownClient } from '../EditDropDownClient/EditDropDownClient'
 
 export const ClientProfile: FC = () => {
     const { id: clientIdFromUrl } = useParams<{ id: string }>()
@@ -16,22 +18,34 @@ export const ClientProfile: FC = () => {
 
     const client = findClientById(parseInt(clientIdFromUrl))
 
+    const [open, setOpen] = useState<boolean>(false)
+
     return (
-        <section className={s.clientProfile}>
+        <div className={s.clientProfile}>
             <div className={s.clientProfileInner}>
                 <div className={s.clientProfileData}>
                     <div className={s.clientProfileImg}>
-                        <img src="" alt="" />
+                        <img src={client.imgUrl} alt="" />
                     </div>
                     <div className={s.clientProfileInfo}>
-                        <div>{client.name}</div>
-                        <div>{client.id}</div>
+                        <div className={s.clientProfileName}>
+                            <span>{client.surname} </span>
+                            <span>{client.name} </span>
+                            <span>{client.patronymic}</span>
+                        </div>
+                        <div className={s.clientProfileGenderAndAge}>
+                            <span>{client.age} лет,</span>
+                            <span>{client.gender.slice(0, 3)}</span>
+                        </div>
                     </div>
                 </div>
-                <div className={s.clientProfileOptions}>...</div>
+                <div
+                    onClick={() => setOpen(true)}
+                    className={s.clientProfileOptions}
+                >
+                    {<DetailsIcon />}
+                </div>
             </div>
-
-            {/* <ClientProfileSubpages clientId={clientIdFromUrl} /> */}
-        </section>
+        </div>
     )
 }

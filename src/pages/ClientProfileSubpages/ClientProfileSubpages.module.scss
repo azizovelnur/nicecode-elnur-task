@@ -1,5 +1,39 @@
 .subpages {
     display: flex;
+    justify-content: space-between;
     color: #616f82;
+    align-items: center;
     font-size: 14px;
+    height: 26px;
+    padding-left: 10px;
+    padding-right: 20px;
+}
+
+.subpagesLinks {
+    display: flex;
+    height: 20px;
+}
+
+.divider {
+    height: 15px;
+    width: 1px;
+    background-color: #cdcdcd;
+    margin: 0 10px;
+}
+
+.actionOfPage {
+    height: 26px;
+    width: 154px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.actionOfPageIcon {
+    cursor: pointer;
+}
+.pageLink {
+    color: #616f82;
+}
+.activePageLink {
+    color: #4198c5;
 }

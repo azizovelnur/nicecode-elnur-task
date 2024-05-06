@@ -2,6 +2,12 @@ export interface IClient {
     id: number
     name: string
     imgUrl: string
+    age: number
+    gender: string
+    surname: string
+    patronymic: string
+    notificationMessageIcon?: string
+    notificationAlertIcon?: string
 }
 
 export interface IClientProps {

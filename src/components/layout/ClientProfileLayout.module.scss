@@ -1,7 +1,7 @@
 .clientsProfileLayout {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 13px;
 }
 
 .clientProfileSubPage {
@@ -11,4 +11,5 @@
     width: 744px;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
+    min-height: 778px;
 }
