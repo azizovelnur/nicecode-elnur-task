@@ -10,6 +10,7 @@ function App() {
     return (
         <Routes>
             <Route path={'/'} element={<Layout />}>
+                <Route index element={<ClientProfileLayout />} />
                 <Route path="/client/:id" element={<ClientProfileLayout />}>
                     <Route index element={<ClientProfileNotes />} />
                     <Route path="notes" element={<ClientProfileNotes />} />

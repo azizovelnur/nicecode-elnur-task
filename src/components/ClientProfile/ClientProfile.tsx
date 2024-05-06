@@ -25,17 +25,24 @@ export const ClientProfile: FC = () => {
             <div className={s.clientProfileInner}>
                 <div className={s.clientProfileData}>
                     <div className={s.clientProfileImg}>
-                        <img src={client.imgUrl} alt="" />
+                        <img
+                            src={client ? client.imgUrl : '/images/2.png'}
+                            alt=""
+                        />
                     </div>
                     <div className={s.clientProfileInfo}>
                         <div className={s.clientProfileName}>
-                            <span>{client.surname} </span>
-                            <span>{client.name} </span>
-                            <span>{client.patronymic}</span>
+                            <span>{client ? client.surname : 'Рожков'} </span>
+                            <span>{client ? client.name : 'Денис'} </span>
+                            <span>
+                                {client ? client.patronymic : 'Петрович'}
+                            </span>
                         </div>
                         <div className={s.clientProfileGenderAndAge}>
-                            <span>{client.age} лет,</span>
-                            <span>{client.gender.slice(0, 3)}</span>
+                            <span>{client ? client.age : '30'} лет,</span>
+                            <span>
+                                {client ? client.gender.slice(0, 3) : 'муж'}
+                            </span>
                         </div>
                     </div>
                 </div>
