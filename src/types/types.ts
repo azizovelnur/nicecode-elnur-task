@@ -6,8 +6,6 @@ export interface IClient {
     gender: string
     surname: string
     patronymic: string
-    notificationMessageIcon?: string
-    notificationAlertIcon?: string
 }
 
 export interface IClientProps {

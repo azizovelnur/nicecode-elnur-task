@@ -32,7 +32,6 @@ const initialState: ClientsState = {
             imgUrl: ClientPicture1,
             age: 24,
             gender: 'женщина',
-            notificationMessageIcon: '/images/telegramIcon.svg',
         },
         {
             id: 2,
@@ -51,7 +50,6 @@ const initialState: ClientsState = {
             imgUrl: ClientPicture3,
             age: 30,
             gender: 'женщина',
-            notificationAlertIcon: '/images/alertIcon.svg',
         },
         {
             id: 4,

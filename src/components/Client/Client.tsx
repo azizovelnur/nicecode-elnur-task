@@ -5,6 +5,8 @@ import * as s from './Client.module.scss'
 import { Link, useParams } from 'react-router-dom'
 import { useAppSelector } from '../../hooks/hooks'
 import { RootState } from '../../store/store'
+import TelegramIcon from '../../assets/images/telegramIcon.svg'
+import AlertIcon from '../../assets/images/alertIcon.svg'
 
 export const Client: FC<IClientProps> = ({
     client,
@@ -40,16 +42,10 @@ export const Client: FC<IClientProps> = ({
                     <span>{client.name}</span>
                 </div>
             </Link>
-            <img
-                className={s.notificationAlert}
-                src={client.notificationMessageIcon}
-                alt=""
-            />
-            <img
-                className={s.notificationAlert}
-                src={client.notificationAlertIcon}
-                alt=""
-            />
+            <div className={s.notificationAlert}>
+                {client.id === 1 ? <TelegramIcon color={'#4198C5'} /> : ''}
+                {client.id === 3 ? <AlertIcon color={'#EC8532'} /> : ''}
+            </div>
         </div>
     )
 }
