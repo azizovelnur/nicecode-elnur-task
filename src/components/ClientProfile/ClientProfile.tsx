@@ -6,6 +6,7 @@ import { RootState } from '../../store/store'
 import { ClientProfileSubpages } from '../../pages/ClientProfileSubpages/ClientProfileSubpages'
 import DetailsIcon from '../../assets/images/detailsIcon.svg'
 import { EditDropDownClient } from '../EditDropDownClient/EditDropDownClient'
+import ProfileImg2 from '../../assets/images/2.png'
 
 export const ClientProfile: FC = () => {
     const { id: clientIdFromUrl } = useParams<{ id: string }>()
@@ -26,7 +27,7 @@ export const ClientProfile: FC = () => {
                 <div className={s.clientProfileData}>
                     <div className={s.clientProfileImg}>
                         <img
-                            src={client ? client.imgUrl : '/images/2.png'}
+                            src={client ? client.imgUrl : ProfileImg2}
                             alt=""
                         />
                     </div>
