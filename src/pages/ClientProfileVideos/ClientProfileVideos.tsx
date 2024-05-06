@@ -18,7 +18,6 @@ export const ClientProfileVideos: FC = () => {
                     </div>
                     <div className={s.videosContentTextWrapper}>
                         <div className={s.videosContentText}>
-                            {' '}
                             Крабик, ходьба в бок в приседе с двумя резинками
                             Кра…
                         </div>

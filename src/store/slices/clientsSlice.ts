@@ -1,6 +1,19 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { IClient } from '../../types/types'
 
+import ClientPicture1 from '../../assets/images/1.png'
+import ClientPicture2 from '../../assets/images/2.png'
+import ClientPicture3 from '../../assets/images/3.png'
+import ClientPicture4 from '../../assets/images/4.png'
+import ClientPicture5 from '../../assets/images/5.png'
+import ClientPicture6 from '../../assets/images/6.png'
+import ClientPicture7 from '../../assets/images/7.png'
+import ClientPicture8 from '../../assets/images/8.png'
+import ClientPicture9 from '../../assets/images/9.png'
+import ClientPicture10 from '../../assets/images/10.png'
+import ClientPicture11 from '../../assets/images/11.png'
+import ClientPicture12 from '../../assets/images/12.png'
+
 interface ClientsState {
     clientsDataOfClientsSlice: IClient[]
     selectedClientsOfClientsSlice: IClient[]
@@ -16,7 +29,7 @@ const initialState: ClientsState = {
             surname: 'Кравцова',
             name: 'Александра',
             patronymic: 'Алексеевна',
-            imgUrl: '/images/1.png',
+            imgUrl: ClientPicture1,
             age: 24,
             gender: 'женщина',
             notificationMessageIcon: '/images/telegramIcon.svg',
@@ -26,7 +39,7 @@ const initialState: ClientsState = {
             surname: 'Рожков',
             name: 'Денис',
             patronymic: 'Петрович',
-            imgUrl: '/images/2.png',
+            imgUrl: ClientPicture2,
             age: 30,
             gender: 'мужчина',
         },
@@ -35,7 +48,7 @@ const initialState: ClientsState = {
             surname: 'Кравцова',
             name: 'Александра',
             patronymic: 'Тестовна',
-            imgUrl: '/images/3.png',
+            imgUrl: ClientPicture3,
             age: 30,
             gender: 'женщина',
             notificationAlertIcon: '/images/alertIcon.svg',
@@ -44,7 +57,7 @@ const initialState: ClientsState = {
             id: 4,
             surname: 'Диброва',
             name: 'Алевтина',
-            imgUrl: '/images/4.png',
+            imgUrl: ClientPicture4,
             patronymic: 'Тестовна',
             age: 34,
             gender: 'женщина',
@@ -54,7 +67,7 @@ const initialState: ClientsState = {
             surname: 'Иванов',
             name: 'Дмитрий',
             patronymic: 'Тестович',
-            imgUrl: '/images/5.png',
+            imgUrl: ClientPicture5,
             age: 30,
             gender: 'мужчина',
         },
@@ -63,7 +76,7 @@ const initialState: ClientsState = {
             surname: '',
             name: 'nosikov@list.ru',
             patronymic: 'Тестович',
-            imgUrl: '/images/6.png',
+            imgUrl: ClientPicture6,
             age: 30,
             gender: 'мужчина',
         },
@@ -72,7 +85,7 @@ const initialState: ClientsState = {
             surname: 'Форс ',
             name: 'Александр',
             patronymic: 'Тестович',
-            imgUrl: '/images/7.png',
+            imgUrl: ClientPicture7,
             age: 30,
             gender: 'мужчина',
         },
@@ -81,7 +94,7 @@ const initialState: ClientsState = {
             surname: 'Ахмедов',
             name: 'Артур',
             patronymic: 'Тестович',
-            imgUrl: '/images/8.png',
+            imgUrl: ClientPicture8,
             age: 30,
             gender: 'мужчина',
         },
@@ -90,7 +103,7 @@ const initialState: ClientsState = {
             surname: 'Блажевич',
             name: 'Игорь',
             patronymic: 'Тестович',
-            imgUrl: '/images/9.png',
+            imgUrl: ClientPicture9,
             age: 30,
             gender: 'мужчина',
         },
@@ -99,7 +112,7 @@ const initialState: ClientsState = {
             surname: 'Валиева',
             name: 'Руфина',
             patronymic: 'Тестовна',
-            imgUrl: '/images/10.png',
+            imgUrl: ClientPicture10,
             age: 23,
             gender: 'женщина',
         },
@@ -108,7 +121,7 @@ const initialState: ClientsState = {
             surname: 'Волошина',
             name: 'Виктория',
             patronymic: 'Тестовна',
-            imgUrl: '/images/11.png',
+            imgUrl: ClientPicture11,
             age: 24,
             gender: 'женщина',
         },
@@ -118,7 +131,7 @@ const initialState: ClientsState = {
             name: 'Виктория',
 
             patronymic: 'Тестовна',
-            imgUrl: '/images/12.png',
+            imgUrl: ClientPicture12,
             age: 19,
             gender: 'женщина',
         },
